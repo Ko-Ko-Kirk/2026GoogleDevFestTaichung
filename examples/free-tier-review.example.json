@@ -1,0 +1,24 @@
+{
+  "mode": "reviewed-free-tier",
+  "checked_at": "2000-01-01T00:00:00+00:00",
+  "expires_at": "2000-01-01T01:00:00+00:00",
+  "cloud_project": "YOUR_INFRA_PROJECT",
+  "model_project": "YOUR_UNBILLED_MODEL_PROJECT",
+  "model_project_unbilled": true,
+  "gemini_model": "gemini-4-hydrogen",
+  "operations": [
+    "setup",
+    "deploy",
+    "smoke",
+    "live_demo",
+    "deploy_runtime",
+    "verify_runtime",
+    "Gemini Developer inference",
+    "Model Armor scans",
+    "GCS IO",
+    "remote MCP transport"
+  ],
+  "mcp_endpoints": [],
+  "allowance_evidence": null,
+  "model_key_sha256": "GENERATED_FROM_THE_TRACKED_KEY_BY_project-pair.sh_review"
+}

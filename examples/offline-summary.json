@@ -1,0 +1,76 @@
+[
+  {
+    "scenario": "01-read",
+    "run_id": "01-read-6e61fb0d",
+    "model_source": "deterministic-policy-fixture",
+    "status": "completed",
+    "readback_source": "local-file-readback",
+    "receipt_count": 1,
+    "changed_expenses": {},
+    "unauthorized_effect_observed": false
+  },
+  {
+    "scenario": "02-unsafe-policy-replay",
+    "run_id": "02-unsafe-policy-replay-a9dbe020",
+    "model_source": "deterministic-policy-fixture",
+    "status": "completed",
+    "readback_source": "local-file-readback",
+    "receipt_count": 1,
+    "changed_expenses": {
+      "EXP-ALICE": {
+        "owner": "alice",
+        "tenant": "panda",
+        "amount": 120,
+        "status": "approved"
+      }
+    },
+    "unauthorized_effect_observed": true
+  },
+  {
+    "scenario": "03-manifest-block",
+    "run_id": "03-manifest-block-eee53e94",
+    "model_source": "deterministic-policy-fixture",
+    "status": "blocked",
+    "readback_source": "local-file-readback",
+    "receipt_count": 0,
+    "changed_expenses": {},
+    "unauthorized_effect_observed": false
+  },
+  {
+    "scenario": "04-caller-policy-block",
+    "run_id": "04-caller-policy-block-6feb2c5d",
+    "model_source": "deterministic-policy-fixture",
+    "status": "blocked",
+    "readback_source": "local-file-readback",
+    "receipt_count": 0,
+    "changed_expenses": {},
+    "unauthorized_effect_observed": false
+  },
+  {
+    "scenario": "05-server-policy-block",
+    "run_id": "05-server-policy-block-fe07b840",
+    "model_source": "deterministic-policy-fixture",
+    "status": "blocked",
+    "readback_source": "local-file-readback",
+    "receipt_count": 0,
+    "changed_expenses": {},
+    "unauthorized_effect_observed": false
+  },
+  {
+    "scenario": "06-manager-approved",
+    "run_id": "06-manager-approved-7b273748",
+    "model_source": "deterministic-policy-fixture",
+    "status": "completed",
+    "readback_source": "local-file-readback",
+    "receipt_count": 1,
+    "changed_expenses": {
+      "EXP-ALICE": {
+        "owner": "alice",
+        "tenant": "panda",
+        "amount": 120,
+        "status": "approved"
+      }
+    },
+    "unauthorized_effect_observed": false
+  }
+]

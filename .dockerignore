@@ -1,0 +1,8 @@
+*
+!Dockerfile
+!requirements-server.txt
+!src/
+!src/devfest_security/
+!src/devfest_security/*.py
+**/__pycache__
+**/*.pyc

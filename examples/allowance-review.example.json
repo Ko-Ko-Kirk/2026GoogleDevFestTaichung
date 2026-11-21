@@ -1,0 +1,7 @@
+{
+  "project": "YOUR_INFRA_PROJECT",
+  "account": "YOU@example.com",
+  "billing_account": "billingAccounts/YOUR_BILLING_ACCOUNT",
+  "checked_at": "2000-01-01T00:00:00+00:00",
+  "evidence": null
+}

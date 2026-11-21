@@ -1,4 +1,4 @@
-# 台中場逐頁講者備註（r8）
+# 台中場逐頁講者備註（r9）
 
 ## 1. 從 MCP Tool Poisoning 到 Google Cloud Agent Security 實戰（00:00–01:00）
 
@@ -49,7 +49,7 @@
 
 ## 8. 第三幕　Alice 查自己的單，工具說明卻變了（11:30–13:00）
 
-從這頁起切到 10 月 28 日的雲端實測回放。仍是 Alice 想查自己的 EXP-ALICE。這次看的是伺服器透過 tools/list 送回的工具說明。對照雲端的正常版和變更版，網址、版本和工具名稱相同。這是另一組實驗環境，前兩幕使用的 Hydrogen 沒有參與。
+現在切到雲端實測回放。仍是 Alice 想查自己的 EXP-ALICE。這次看的是伺服器透過 tools/list 送回的工具說明。對照雲端的正常版和變更版，網址、版本和工具名稱相同。這是另一組實驗環境，前兩幕使用的 Hydrogen 沒有參與。
 
 - [examples/live-cloud-results.json](../examples/live-cloud-results.json)
 
@@ -60,15 +60,15 @@
 - [examples/live-cloud-results.json](../examples/live-cloud-results.json)
 - <https://docs.cloud.google.com/model-armor/sanitize-prompts-responses>
 
-## 10. 10 月 28 日的六個雲端案例（15:00–16:30）
+## 10. 六個雲端案例，哪些有執行工具？（15:00–16:30）
 
 先看前兩列。正常案與改過工具說明但沒有額外防護的那案，Flash-Lite 都只查了 Alice 的單。第三列開啟描述掃描後，在第一次模型推論前就停了。第四列是另一個獨立的 Manifest 比對案例。第五列的批准請求由測試程式送出。最後一列才是主管 Bob 合法批准。
 
 - [examples/live-cloud-results.json](../examples/live-cloud-results.json)
 
-## 11. 10 月 28 日的雲端架構（16:30–17:30）
+## 11. 雲端的模型、掃描與工具怎麼接？（16:30–17:30）
 
-這張架構圖對應剛才的 10 月 28 日回放。LangGraph 送內容給 Model Armor、向 Gemini 請求推論，再用服務帳戶呼叫私有 Cloud Run。MCP 將收據和帳本寫進 Cloud Storage。回看第二幕，應用程式在發送工具呼叫前就能拒絕。
+回放中的請求經過這些服務。LangGraph 送內容給 Model Armor、向 Gemini 請求推論，再用服務帳戶呼叫私有 Cloud Run。MCP 將收據和帳本寫進 Cloud Storage。回看第二幕，應用程式在發送工具呼叫前就能拒絕。
 
 - [examples/live-cloud-results.json](../examples/live-cloud-results.json)
 
@@ -114,7 +114,7 @@
 
 ## 19. 先驗服務身分，再查報帳權限（26:00–27:30）
 
-上面是 Cloud Run 對服務呼叫者的檢查，要有符合 audience 的 ID token 和 Invoker 權限。下面是 MCP Server 以應用程式身分查 Alice 有沒有權批准。初始化的 403 和 200 是 10 月 28 日的實測。Alice 與 Bob 在這個實驗是固定測試角色。
+上面是 Cloud Run 對服務呼叫者的檢查，要有符合 audience 的 ID token 和 Invoker 權限。下面是 MCP Server 以應用程式身分查 Alice 有沒有權批准。雲端紀錄裡可以對照這兩次初始化回應：403 與 200。Alice 與 Bob 在這個實驗是固定測試角色。
 
 ## 20. 把同一筆請求的紀錄找齊（27:30–29:00）
 
@@ -122,13 +122,13 @@
 
 ## 21. 私有 MCP 從部署到清理（29:00–30:00）
 
-10 月 28 日曾建立這些資源，從遠端查詢到 GCS 讀回都驗過。結束後執行專案的 cleanup.sh，再以 verify-cleanup.sh 查殘留。今天講這段用存檔，無須現場部署。
+雲端實測涵蓋建立資源、遠端查詢，以及從 GCS 讀回結果。結束後執行專案的 cleanup.sh，再以 verify-cleanup.sh 查殘留。今天講這段用存檔，無須現場部署。
 
 - [examples/live-cloud-results.json](../examples/live-cloud-results.json)
 
 ## 22. Agent Runtime 遠端查詢的結果（30:00–31:00）
 
-Runtime 本身有 event loop，async_query 直接 await LangGraph。架構裡的模型 key 來自 Secret Manager，連到 Cloud Run 則用 Runtime 身分。這頁依 10 月 28 日 Flash-Lite 的實際查詢和 GCS 讀回。
+Runtime 本身有 event loop，async_query 直接 await LangGraph。架構裡的模型 key 來自 Secret Manager，連到 Cloud Run 則用 Runtime 身分。這個結果來自 Flash-Lite 的遠端查詢與 GCS 讀回。
 
 ## 23. 兩次 Hydrogen 彩排花了多少？（31:00–32:00）
 

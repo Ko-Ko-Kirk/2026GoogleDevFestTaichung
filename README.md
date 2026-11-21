@@ -4,11 +4,11 @@ DevFest Taichung 2026，40 分鐘，正體中文。專案收錄報帳 Demo、合
 
 本場從 MCP Tool Poisoning 的攻擊流程開始，逐步加入 Model Armor、工具完整性檢查、身分權限與執行稽核。工具描述改變時，先觀察 Gemini 的實際行為，再用可重複的授權測試確認應用程式防線。
 
-台中場的三幕沿用同一套合成報帳資料。第一幕，Alice 用 Vertex AI 的 Gemini 4 Hydrogen 查自己的單，讀回金額 120、待審核和一張收據。第二幕，只把單號換成 Bob 的，Hydrogen 提出查詢，應用程式拒絕，MCP 執行 0 次。第三幕回放 10 月 28 日的雲端紀錄，看 Model Armor 在工具說明送給模型前命中。前兩幕可現場按用量呼叫 Vertex AI，三幕都可用 Python 3 離線播放。指令與投影片頁次見[講者手冊](docs/talk-runbook.md)。
+台中場的三幕沿用同一套合成報帳資料。第一幕，Alice 用 Vertex AI 的 Gemini 4 Hydrogen 查自己的單，讀回金額 120、待審核和一張收據。第二幕，只把單號換成 Bob 的，Hydrogen 提出查詢，應用程式拒絕，MCP 執行 0 次。第三幕回放雲端實測紀錄，看 Model Armor 在工具說明送給模型前命中。前兩幕可現場按用量呼叫 Vertex AI，三幕都可用 Python 3 離線播放。指令與投影片頁次見[講者手冊](docs/talk-runbook.md)。
 
 ## 用 Python 3 離線看三幕 Demo
 
-在專案目錄執行以下指令。每一幕都會印出實測日期與 run_id，只讀取隨附的 JSON 紀錄。
+在專案目錄執行以下指令。每一幕都會標明回放來源與 run_id，只讀取隨附的 JSON 紀錄。
 
 ```bash
 python3 scripts/talk-replay.py alice
@@ -16,7 +16,7 @@ python3 scripts/talk-replay.py bob
 python3 scripts/talk-replay.py armor
 ```
 
-## 真實雲端結果（2026-10-28）
+## 雲端實測結果
 
 | 情境 | 實測結果 |
 |---|---|

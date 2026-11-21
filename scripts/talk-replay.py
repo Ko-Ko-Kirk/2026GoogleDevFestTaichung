@@ -10,7 +10,7 @@ EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
 def show_hydrogen(scene):
     recording = json.loads((EXAMPLES / "hydrogen-stage.json").read_text(encoding="utf-8"))
     run = recording["runs"][scene]
-    print(f'彩排回放　{recording["date"]}　{run["api"]} / {run["model"]}')
+    print(f'彩排回放　{run["api"]} / {run["model"]}')
     print(f'使用者　{run["principal"]}')
     print(f'模型提出　{run["tool"]}({run["arguments"]["expense_id"]})')
     if "denial" in run:
@@ -29,7 +29,7 @@ def show_hydrogen(scene):
 def show_armor():
     recording = json.loads((EXAMPLES / "live-cloud-results.json").read_text(encoding="utf-8"))
     run = next(case for case in recording["scenarios"] if case["scenario"] == "03-poisoned-armor")
-    print(f'雲端實測回放　{recording["date"]}　Model Armor')
+    print("雲端實測回放　Model Armor")
     for event in run["events"]:
         if event["event"] == "armor_scan":
             print(f'掃描　{event["surface"]}　{event["decision"]}')
